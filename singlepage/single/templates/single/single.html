@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Applications</title>
+    <style>
+        p {
+            display: none;
+        }
+    </style>
+    <script>
+
+        function showPage(page){
+            a = "#"+page+"";
+            console.log(a);
+            document.querySelectorAll('p').forEach(p=>{
+                p.style.display = 'none';}
+                )
+            document.querySelector(a).style.display = 'block';
+           
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            document.querySelectorAll('button').forEach(button=>{
+                button.onclick = function(){
+                    showPage(this.dataset.page);
+                }
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+
+    <button data-page ="page1">Section 1</button>
+    <button data-page="page2">Section 2</button>
+    <button data-page="page3">Section 3</button>
+
+    <div>
+    <p id="page1">This is Page 1</p>
+    <p id="page2">This is page 2</p>
+    <p id="page3">This is page 3</p>
+    </div>
+
+</body>
+</html>
